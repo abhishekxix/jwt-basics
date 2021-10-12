@@ -1,14 +1,14 @@
 //check username, pwd in post(login) request
 // if exists: create new JWT and send it back to the front-end
 const jwt = require('jsonwebtoken');
-const CustomAPIError = require('../errors/custom-error');
+const BadRequest = require('../errors');
 
 // Set up authentication
 
 const login = async (req, res) => {
   const { username, password } = req.body;
   if (!(username && password)) {
-    throw new CustomAPIError('Please enter email and password.', 400);
+    throw new BadRequest('Please enter email and password.');
   }
   // only for demo
   const id = new Date().getDate();
