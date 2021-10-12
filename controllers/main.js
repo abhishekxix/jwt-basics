@@ -3,7 +3,11 @@ const login = async (req, res) => {
 };
 
 const dashboard = async (req, res) => {
-  res.json({ msg: 'dashboard route' });
+  const luckyNumber = Math.floor(Math.random() * 100);
+  res.status(200).json({
+    msg: 'dashboard route',
+    secret: `Here is your authorized data, your lucky number is ${luckyNumber}`,
+  });
 };
 
 module.exports = {
